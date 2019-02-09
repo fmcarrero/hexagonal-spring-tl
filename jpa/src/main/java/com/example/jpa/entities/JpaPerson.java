@@ -1,4 +1,4 @@
-package com.example.jpa;
+package com.example.jpa.entities;
 
 import com.example.core.domain.Person;
 
@@ -16,7 +16,7 @@ public class JpaPerson extends Person {
 
 	@Id
     @GeneratedValue
-    private Long id;
+    private long id;
     
     private String name;
     
@@ -25,11 +25,11 @@ public class JpaPerson extends Person {
     private int age;
 
 
-    public Long getId() {
+    public long getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(long id) {
         this.id = id;
     }
 

@@ -9,7 +9,7 @@ public interface PersonRepository {
 
     List<Person> findAll();
 
-    Optional<Person> findById(Long id);
+    Optional<Person> findById(long id);
 
     Person save(Person person);
 }

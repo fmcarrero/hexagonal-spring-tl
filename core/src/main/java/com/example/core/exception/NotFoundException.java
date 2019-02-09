@@ -1,4 +1,4 @@
-package com.example.rest;
+package com.example.core.exception;
 
 import org.springframework.web.bind.annotation.ResponseStatus;
 
@@ -11,4 +11,9 @@ public class NotFoundException extends RuntimeException {
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
+
+	public NotFoundException(String message) {
+	     super(message);
+	}
+
 }

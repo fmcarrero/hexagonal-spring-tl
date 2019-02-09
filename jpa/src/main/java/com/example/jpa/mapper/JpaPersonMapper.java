@@ -1,6 +1,8 @@
-package com.example.jpa;
+package com.example.jpa.mapper;
 
 import com.example.core.domain.Person;
+import com.example.jpa.entities.JpaPerson;
+
 import org.mapstruct.Mapper;
 import org.mapstruct.factory.Mappers;
 

@@ -1,6 +1,8 @@
 package com.example.rest;
 
+import com.example.core.constants.PersonConstants;
 import com.example.core.domain.Person;
+import com.example.core.exception.NotFoundException;
 import com.example.core.ports.People;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -13,26 +15,22 @@ import java.util.List;
 @RequestMapping("/people")
 public class PersonRestController {
 
-    private People peopleService;
+	@Autowired
+	private People peopleService;
 
-    @Autowired
-    public PersonRestController(People peopleService) {
-        this.peopleService = peopleService;
-    }
+	@GetMapping
+	public List<Person> readPeople() {
+		return peopleService.readPeople();
+	}
 
-    @GetMapping
-    public List<Person> readPeople() {
-        return peopleService.readPeople();
-    }
+	@GetMapping("{id}")
+	public Person readPerson(@PathVariable Long id) {
+		return peopleService.readPerson(id).orElseThrow(() -> new NotFoundException(PersonConstants.NOT_FOUND_PERSON));
+	}
 
-    @GetMapping("{id}")
-    public Person readPerson(@PathVariable Long id) {
-        return peopleService.readPerson(id).orElseThrow(NotFoundException::new);
-    }
-
-    @PostMapping
-    @ResponseStatus(HttpStatus.CREATED)
-    public Person createPerson(@Valid @RequestBody Person person) {
-        return peopleService.createPerson(person);
-    }
+	@PostMapping
+	@ResponseStatus(HttpStatus.CREATED)
+	public Person createPerson(@Valid @RequestBody Person person) {
+		return peopleService.createPerson(person);
+	}
 }

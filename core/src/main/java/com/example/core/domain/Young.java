@@ -1,8 +1,5 @@
 package com.example.core.domain;
 
-import org.springframework.beans.factory.annotation.Autowired;
-
-import com.example.core.ports.ApplicationConfigReader;
 
 public class Young extends Person {
 
@@ -10,16 +7,24 @@ public class Young extends Person {
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	private ApplicationConfigReader applicationConfig;
+	public Young() {}
 	
-	@Autowired
-	public void setApplicationConfig(ApplicationConfigReader applicationConfig) {
-		this.applicationConfig = applicationConfig;
+
+	private String appRoutingKey;
+	
+	public void setAppRoutingKey(String appRoutingKey) {
+		this.appRoutingKey = appRoutingKey;
 	}
+	
 	
 	@Override
-	public String GetNameExchange() {
-		return this.applicationConfig.getApp1Exchange();
+	public String GetRoutingKey() {
+		return this.appRoutingKey;
 	}
+	
+	public Young(Long id, String name, String lastName,int age) {
+		super(id,name,lastName, age);        
+    }
+
 
 }

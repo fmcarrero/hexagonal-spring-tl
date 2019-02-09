@@ -23,6 +23,9 @@ public class ApplicationConfigReaderImpl implements ApplicationConfigReader {
 	
 	@Value("${app2.routing.key}")
 	private String app2RoutingKey;
+	
+	@Value("${age}")
+	private int age;
 
 	public String getApp1Exchange() {
 		return app1Exchange;
@@ -39,7 +42,8 @@ public class ApplicationConfigReaderImpl implements ApplicationConfigReader {
 	public void setApp1Queue(String app1Queue) {
 		this.app1Queue = app1Queue;
 	}
-
+	
+	@Override
 	public String getApp1RoutingKey() {
 		return app1RoutingKey;
 	}
@@ -56,12 +60,18 @@ public class ApplicationConfigReaderImpl implements ApplicationConfigReader {
 		this.app2Queue = app2Queue;
 	}
 
+	@Override
 	public String getApp2RoutingKey() {
 		return app2RoutingKey;
 	}
 
 	public void setApp2RoutingKey(String app2RoutingKey) {
 		this.app2RoutingKey = app2RoutingKey;
+	}
+
+	@Override
+	public int getAge() {
+		return this.age;
 	}
 	
 }
