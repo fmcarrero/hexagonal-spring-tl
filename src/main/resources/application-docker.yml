@@ -1,0 +1,47 @@
+age: 18
+app1:
+  exchange:
+    name: app1-exchange
+  queue:
+    name: app1-queue
+  routing:
+    key: app1-routing-key
+app2:
+  queue:
+    name: app2-queue
+  routing:
+    key: app2-routing-key
+logging:
+  level:
+    org:
+      hibernate:
+        SQL: debug
+server:
+  port: 8080
+spring:
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    initialization-mode: always
+    password: ${PASSWORD_DB_JWT}
+    url: jdbc:mysql://host.docker.internal:3306/demo?allowPublicKeyRetrieval=true&useSSL=false
+    username: root
+    validationQuery: SELECT 1
+  jpa:
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL5Dialect
+  main:
+    allow-bean-definition-overriding: true
+  rabbitmq:
+    host: host.docker.internal
+    listener:
+      simple:
+        concurrency: 4
+        max-concurrency: 8
+        retry:
+          initial-interval: 5000
+    password: guest
+    port: 5672
+    username: guest
