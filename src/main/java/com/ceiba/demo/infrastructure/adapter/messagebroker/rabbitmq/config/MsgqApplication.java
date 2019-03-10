@@ -16,6 +16,8 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.messaging.converter.MappingJackson2MessageConverter;
 import org.springframework.messaging.handler.annotation.support.DefaultMessageHandlerMethodFactory;
 
+import com.ceiba.demo.infrastructure.adapter.messagebroker.rabbitmq.RabbitMqMessage;
+
 @EnableRabbit
 public class MsgqApplication extends SpringBootServletInitializer implements RabbitListenerConfigurer {
 
@@ -71,6 +73,10 @@ public class MsgqApplication extends SpringBootServletInitializer implements Rab
 		return BindingBuilder.bind(getApp2Queue).to(getApp1Exchange).with(getApplicationConfig().getApp2RoutingKey());
 	}
 	
+	@Bean
+	public RabbitMqMessage createRabbitMqMessage(RabbitTemplate rabbitTemplate,ApplicationConfigReader applicationConfigReader) {
+		return new RabbitMqMessage(rabbitTemplate, applicationConfigReader);
+	}
 
 
 

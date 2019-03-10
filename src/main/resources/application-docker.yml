@@ -1,4 +1,5 @@
-age: 18
+server:
+  port: 9017
 app1:
   exchange:
     name: app1-exchange
@@ -16,11 +17,9 @@ logging:
     org:
       hibernate:
         SQL: debug
-server:
-  port: 8080
 spring:
   datasource:
-    driver-class-name: com.mysql.jdbc.Driver
+    driver-class-name: com.mysql.cj.jdbc.Driver
     initialization-mode: always
     password: ${PASSWORD_DB_JWT}
     url: jdbc:mysql://host.docker.internal:3306/demo?allowPublicKeyRetrieval=true&useSSL=false
@@ -31,7 +30,7 @@ spring:
       ddl-auto: update
     properties:
       hibernate:
-        dialect: org.hibernate.dialect.MySQL5Dialect
+        dialect:  org.hibernate.dialect.MySQL8Dialect
   main:
     allow-bean-definition-overriding: true
   rabbitmq:

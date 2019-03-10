@@ -1,4 +1,4 @@
-package com.ceiba.demo.infrastructure.adapter.application.springapp.config;
+package com.ceiba.demo.infrastructure.application.springapp.config;
 
 
 import org.springframework.context.annotation.Bean;

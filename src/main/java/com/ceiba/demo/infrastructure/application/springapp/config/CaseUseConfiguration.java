@@ -1,4 +1,4 @@
-package com.ceiba.demo.infrastructure.adapter.application.springapp.config;
+package com.ceiba.demo.infrastructure.application.springapp.config;
 
 import com.ceiba.demo.application.caseuse.CreatePerson;
 import com.ceiba.demo.application.caseuse.FindPerson;
@@ -10,7 +10,7 @@ import com.ceiba.demo.domain.ports.MessageSender;
 import com.ceiba.demo.infrastructure.adapter.repository.dbsimple.db.MysqlPersonRepository;
 
 @Configuration
-public class ApplicationConfiguration {
+public class CaseUseConfiguration {
 
     @Bean
     public CreatePerson createPerson( MessageSender messageSender){

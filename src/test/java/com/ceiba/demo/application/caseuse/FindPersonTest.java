@@ -46,13 +46,14 @@ public class FindPersonTest {
     public void findById(){
         //arrange
         int id = 5;
-        Person person = new PersonTestDataBuilder().withId(id).build();
+        
+        Person person = new PersonTestDataBuilder().withlastName("felipe").withId(id).build();
         Optional<Person> PersonOptional = Optional.of(person);
         when(this.personRepository.findById(id)).thenReturn(PersonOptional);
         //act
-        Optional<Person> personResponse = this.findPerson.findById(person.getId());
+        Person personResponse = this.findPerson.findById(person.getId());
         //assert
-        Assert.assertEquals(personResponse.get().getId(),id);
+        Assert.assertEquals(personResponse,person);
     }
 
 }

@@ -38,6 +38,9 @@ public class PersonTestDataBuilder {
         return this;
     }
     public Person build() {
-        return  new Person(this.id, this.name, this.lastName, this.age);
+        Person person=  new Person( this.name, this.lastName, this.age);
+        person.setId(id);
+        return person;
     }
+    
 }

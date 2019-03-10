@@ -1,4 +1,4 @@
-package com.ceiba.demo.infrastructure.adapter.application.springapp;
+package com.ceiba.demo.infrastructure.application.springapp;
 
 
 import org.springframework.boot.SpringApplication;

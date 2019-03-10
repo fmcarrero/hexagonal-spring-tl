@@ -22,8 +22,6 @@ public class ApplicationConfigReader {
 	@Value("${app2.routing.key}")
 	private String app2RoutingKey;
 	
-	@Value("${age}")
-	private int age;
 
 	public String getAppExchange() {
 		return app1Exchange;
@@ -45,13 +43,4 @@ public class ApplicationConfigReader {
 		return app2RoutingKey;
 	}
 
-	public int getAge() {
-		return this.age;
-	}
-
-	public void setAge(int age) {
-		this.age = age;
-		
-	}
-	
 }
