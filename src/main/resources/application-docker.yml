@@ -12,11 +12,6 @@ app2:
     name: app2-queue
   routing:
     key: app2-routing-key
-logging:
-  level:
-    org:
-      hibernate:
-        SQL: debug
 spring:
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
